@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Fun Land 🎈</title>
+    <!-- Google Fonts for playful look -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            color: #333;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        header {
+            background: #ff4757;
+            color: white;
+            padding: 2rem 1rem;
+            border-bottom: 6px dashed #ff6b81;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 3px 3px 0px #ff6b81;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .fun-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: 4px solid #ffa502;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: #fff3cd;
+        }
+
+        .card h3 {
+            font-family: 'Fredoka One', cursive;
+            color: #e74c3c;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .fun-btn {
+            background: #2ed573;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px #26af5f;
+            transition: all 0.1s ease;
+        }
+
+        .fun-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 #26af5f;
+        }
+
+        #joke-box {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #2f3542;
+            font-style: italic;
+        }
+
+        footer {
+            background: #2f3542;
+            color: white;
+            padding: 20px;
+            margin-top: 50px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>🌟 Kids Fun Land 🎈</h1>
+        <p>Aao Khelein, Seekhein aur Maza Karein!</p>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="container">
+        
+        <div class="fun-grid">
+            
+            <!-- Card 1: Fun Jokes -->
+            <div class="card">
+                <h3>😂 Hasne ka Zone</h3>
+                <p>Ek mazedaar choti si kahawat ya joke suno!</p>
+                <button class="fun-btn" onclick="showJoke()">Joke Suno</button>
+                <p id="joke-box">Button dabao aur maza lo!</p>
+            </div>
+
+            <!-- Card 2: Color Changer Game -->
+            <div class="card">
+                <h3>🎨 Rang-Birangi Duniya</h3>
+                <p>Background ka rang badal kar dekho kitna mazaa aata hai!</p>
+                <button class="fun-btn" onclick="changeBackground()">Rang Badlo</button>
+            </div>
+
+            <!-- Card 3: Animal Sounds / Fun Fact -->
+            <div class="card">
+                <h3>🦁 Jaanwaro ki Duniya</h3>
+                <p>Kya aapko pata hai? Sher ki dahad 8 kilometer door tak sunai deti hai!</p>
+                <button class="fun-btn" onclick="alert('Roar! 🦁 Sher sabse takatwar hota hai!')">Awaaz Suno</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with ❤️ for Kids! &copy; 2026</p>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Jokes ki list
+        const jokes = [
+            "Teacher: Bachhon, kal sabhi homework karke aana. Pappu: Sir, agar kal baarish aayi toh? 😂",
+            "Pappu: Mummy, aapne mujhe bachpan mein kyu nahi bataya ki main itna handsome hoon? Mummy: Beta, tab tumne rona shuru nahi kiya tha! 🤭",
+            "Teacher: Kal school kyun nahi aaye the? Student: Sir, kal mausam bada suhana tha, toh man kiya ki thodi der aur sote rahein! 😴"
+        ];
+
+        function showJoke() {
+            const randomIndex = Math.floor(Math.random() * jokes.length);
+            document.getElementById("joke-box").innerText = jokes[randomIndex];
+        }
+
+        // Random Background Color Generator
+        function changeBackground() {
+            const colors = ['#ff9f43', '#ee5253', '#0abde3', '#10ac84', '#5f27cd', '#ff6b6b'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.background = randomColor;
+        }
+    </script>
+
+</body>
+</html>
